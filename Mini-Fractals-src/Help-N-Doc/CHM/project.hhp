@@ -1,0 +1,50 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Z:\VS_Projects\ManyFractals_src\New OPC\40286531sphere-good-mostly__________\Sphere\Shaders\glMandel\Help-N-Doc\CHM\Mini-Fractals-Help.chm
+Contents file=toc.hhc
+Default Window=Main
+Default topic=GettingStarted.html
+Display compile progress=No
+Index file=
+Auto Index=No
+Full-text search=Yes
+Language=0x0409
+Title=Mini-Fractals
+Error log file=project.log
+[WINDOWS]
+Main="Mini-Fractals","toc.hhc","","GettingStarted.html","GettingStarted.html","","","","",0x61520,200,0x304E,[-1,-1,-1,-1],0xB0000,,,0,0,0,0
+[FILES]
+introduction.html
+welcome.html
+whatsnew.html
+about.html
+cpollicense.html
+gettingstarted.html
+systemrequirements.html
+glslshaderlanguage.html
+userequations.html
+userequfunctips.html
+juliasettips.html
+css\base.css
+css\ielte8.css
+css\reset.css
+img\arrow_left.png
+img\arrow_right.png
+img\arrow_up.png
+img\footer-bg.png
+img\header-bg.png
+js\chmRelative.js
+[ALIAS]
+introduction=introduction.html
+welcome=welcome.html
+whatsnew=whatsnew.html
+about=about.html
+cpollicense=cpollicense.html
+gettingstarted=gettingstarted.html
+systemrequirements=systemrequirements.html
+glslshaderlanguage=glslshaderlanguage.html
+userequations=userequations.html
+userequfunctips=userequfunctips.html
+juliasettips=juliasettips.html
+[MAP]
+#include ContextNb.h

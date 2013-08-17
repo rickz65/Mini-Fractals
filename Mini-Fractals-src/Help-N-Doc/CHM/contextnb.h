@@ -1,0 +1,11 @@
+#define Introduction 0
+#define Welcome 1
+#define Whatsnew 2
+#define About 3
+#define CPOLLicense 10
+#define GettingStarted 4
+#define Systemrequirements 5
+#define GLSLshaderLanguage 7
+#define UserEquations 8
+#define UserEquFunctips 6
+#define JuliaSettips 9

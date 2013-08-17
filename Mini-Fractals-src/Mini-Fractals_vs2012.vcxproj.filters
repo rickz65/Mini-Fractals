@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="glMandel.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="glMandelDlg.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Output.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadersApp.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="config.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="gdefs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GL\GL11.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GL\glext.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="glMandel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="glMandelDlg.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="NeHeGL.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GL\ogl.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GL\wglext.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadersApp.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\glMandel.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\Mini-Fractals-Logo-64x64.ico">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\glMandel.rc2">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="res\mec327.cur">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="CPOL-License.rtf" />
+    <None Include="Mini-Fractals-Help.chm" />
+    <None Include="shaders\fractal.vs">
+      <Filter>GLSL</Filter>
+    </None>
+    <None Include="shaders\shader-code-workspace.fs">
+      <Filter>GLSL</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+    <Text Include="License-CPOL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{1de808bb-96fc-4a4d-a35f-d0bfd289fe69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{c2d74c9e-768b-495f-8e0e-f232ee4bcee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{7ab844f7-31ae-451c-a499-12b38a754e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLSL">
+      <UniqueIdentifier>{c1a9c268-8803-4210-94eb-ad994a8ca3d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="glMandel.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

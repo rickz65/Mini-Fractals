@@ -1,0 +1,194 @@
+﻿<html>
+	
+<head>
+	<title>User Equations</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <meta name="generator" content="HelpNDoc">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+			<div id="topic_header_content">
+				<h1>User Equations</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="GettingStarted.html">Getting Started</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="GettingStarted.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="GLSLshaderLanguage.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="UserEquFunctips.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">The User Entered Equation/Functions are entered in a two line high Edit Box just above the debug/info output box on the bottom of the main window. </span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">The Code entered there is almost pure GLSL, but which version can vary. I've written it for #version 330 , 3.30 </span></p>
+<p class="rvps3"><span class="rvts8">The big difference is with parenthesis '(' and ')' ... which in the language (and C/C++) has more than one use. For our User Equations, they only mean the algebraic use. Use Square brackets for all other use. Therefore to call the sine of a number use: sin[...] </span></p>
+<p class="rvps3"><span class="rvts8">The shader file has quite a few coding helpers built into it. The most helpful for our Fractal context is the Complex Functions and variables. </span></p>
+<p class="rvps3"><span class="rvts8">The Complex type is a C struct. It's members are r for real and i for imaginary. </span></p>
+<p class="rvps3"><span class="rvts8">The editor allows for addition, subtraction, multiplication and division to be written algebraically, although the GLSL language has no operators. This is done by translating the edit box code into Complex Number Functions: ADD, SUB, MUL and DIV. The last thing the translator does is translate all square brackets to parenthesis. In the translation the original parenthesis are removed. However, any original square bracket are retained and replaced with () ... so it all works out, if you simply just use [] for all non-algebraic () use. </span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">The Complex number functions available are as follows:</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">re[] &nbsp;returns the real component</span></p>
+<p class="rvps3"><span class="rvts8">im[] returns the imaginary component</span></p>
+<p class="rvps3"><span class="rvts8">ir[] &nbsp;returns Complex(i,r) </span></p>
+<p class="rvps3"><span class="rvts8">abs[] &nbsp; absolute of complex</span></p>
+<p class="rvps3"><span class="rvts8">norm[] </span></p>
+<p class="rvps3"><span class="rvts8">arg[]</span></p>
+<p class="rvps3"><span class="rvts8">sgn[] &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8">rec[]</span></p>
+<p class="rvps3"><span class="rvts8">pol[]</span></p>
+<p class="rvps3"><span class="rvts8">NEG[] &nbsp; - operator </span></p>
+<p class="rvps3"><span class="rvts8">COMPLIMENT[] &nbsp;~ operator </span></p>
+<p class="rvps3"><span class="rvts8">ADD[] &nbsp;+ operator &nbsp;translated for you</span></p>
+<p class="rvps3"><span class="rvts8">SUB[a,b] &nbsp; &nbsp; a - b &nbsp; operator &nbsp; translated for you</span></p>
+<p class="rvps3"><span class="rvts8">MUL[] &nbsp;* operator &nbsp; translated for you</span></p>
+<p class="rvps3"><span class="rvts8">DIV[a,b] &nbsp; &nbsp; a / b &nbsp; &nbsp;operator &nbsp;translated for you</span></p>
+<p class="rvps3"><span class="rvts8">pow[a,b] &nbsp; &nbsp;a^b </span></p>
+<p class="rvps3"><span class="rvts8">sqrt[]</span></p>
+<p class="rvps3"><span class="rvts8">ISEQU[a,b] &nbsp; is equal == operator</span></p>
+<p class="rvps3"><span class="rvts8">ISNOTEQU[a,b] &nbsp; != &nbsp; operator</span></p>
+<p class="rvps3"><span class="rvts8">ISLESS[a,b] &nbsp; &nbsp;a &lt; b &nbsp; &nbsp;operator</span></p>
+<p class="rvps3"><span class="rvts8">ISMORE[a,b] &nbsp; a &gt; b &nbsp; &nbsp;operator</span></p>
+<p class="rvps3"><span class="rvts8">ISLESSEQU[a,b] &nbsp; &nbsp;a &lt;= b &nbsp; &nbsp;operator</span></p>
+<p class="rvps3"><span class="rvts8">ISMOREEQU[a,b] &nbsp; a &gt;= b &nbsp; &nbsp;operator</span></p>
+<p class="rvps3"><span class="rvts8">exp[]</span></p>
+<p class="rvps3"><span class="rvts8">ln[]</span></p>
+<p class="rvps3"><span class="rvts8">log[] &nbsp; same as ln[]</span></p>
+<p class="rvps3"><span class="rvts8">log10[]</span></p>
+<p class="rvps3"><span class="rvts8">sin[]</span></p>
+<p class="rvps3"><span class="rvts8">cos[]</span></p>
+<p class="rvps3"><span class="rvts8">tan[]</span></p>
+<p class="rvps3"><span class="rvts8">sinh[]</span></p>
+<p class="rvps3"><span class="rvts8">cosh[]</span></p>
+<p class="rvps3"><span class="rvts8">asin[]</span></p>
+<p class="rvps3"><span class="rvts8">acos[]</span></p>
+<p class="rvps3"><span class="rvts8">atan[]</span></p>
+<p class="rvps3"><span class="rvts8">tanh[]</span></p>
+<p class="rvps3"><span class="rvts8">asinh[]</span></p>
+<p class="rvps3"><span class="rvts8">acosh[]</span></p>
+<p class="rvps3"><span class="rvts8">atanh[]</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">There are helper functions for other variables, like float, but not Complex :</span></p>
+<p class="rvps3"><span class="rvts8">MUL_ADD[a,b,c] &nbsp; which is ( ((a) * (b)) + (c) ) </span></p>
+<p class="rvps3"><span class="rvts8">ATAN2[a,b] &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8">hypot[r,i]</span></p>
+<p class="rvps3"><span class="rvts8">fabs[x]</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">Constants:</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">HALFPI</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.5707963f </span></p>
+<p class="rvps3"><span class="rvts8">LOG10 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2.3025851f</span></p>
+<p class="rvps3"><span class="rvts8">LOG2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.6931472f</span></p>
+<p class="rvps3"><span class="rvts8">e &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.7182818f</span></p>
+<p class="rvps3"><span class="rvts8">pi &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.1415927f </span></p>
+<p class="rvps3"><span class="rvts8">DBL_EPSILON &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.2204460e-8</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">I, J, _I, _J </span></p>
+<p class="rvps3"><span class="rvts8">defined as :</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">I.r = &nbsp;0.0 ; &nbsp;I.i = 1.0 ; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// root of z^2+1 = 0 </span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">J.r = -0.5 ; &nbsp;J.i =0.5*sqrt(3.0) ; &nbsp; &nbsp; &nbsp; &nbsp;// root of z^2+z+1 = 0</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">_I = DIV(1.0 , I);</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">_J = DIV(1.0 , J);</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// &nbsp; &nbsp; J = -0.5 , 0.8660254037844386 </span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// &nbsp; &nbsp;_J = -0.5 , -0.8660254037844386</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// &nbsp; &nbsp;_i = 0 , -1 </span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// &nbsp; &nbsp; i = 0 , 1</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">// ToDo: these need Complex-Function counter-parts to have them work with Complex ...</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">#define SWAP(a,b,t) ((t)=(a),(a)=(b),(b)=(t))</span></p>
+<p class="rvps3"><span class="rvts8">#define SIGN(a) &nbsp;((a)&lt;0 ? -1 : 1)</span></p>
+<p class="rvps3"><span class="rvts8">#define ABS(a) &nbsp; ((a)&lt;0 ? -(a) : (a))</span></p>
+<p class="rvps3"><span class="rvts8">#define SQR(a) &nbsp; ((a)*(a))</span></p>
+<p class="rvps3"><span class="rvts8">#define MIN(a,b) ((a)&lt;(b) ? (a) : (b))</span></p>
+<p class="rvps3"><span class="rvts8">#define MAX(a,b) ((a)&lt;(b) ? (b) : (a))</span></p>
+<p class="rvps3"><span class="rvts8">#define MIN3(a,b,c) ((a)&lt;(b) ? ((a)&lt;(c) ? (a) : (c)) : ((b)&lt;(c) ? (b) : (c)))</span></p>
+<p class="rvps3"><span class="rvts8">#define MAX3(a,b,c) ((a)&gt;(b) ? ((a)&gt;(c) ? (a) : (c)) : ((b)&gt;(c) ? (b) : (c)))</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">// These are Read-Only 'Input' values to the shaders. </span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">uniform vec2 param;</span></p>
+<p class="rvps3"><span class="rvts8">uniform int iters;</span></p>
+<p class="rvps3"><span class="rvts8">uniform int ipow_f; &nbsp; &nbsp;// integer power F for the edit-spin box on control-panel dialog</span></p>
+<p class="rvps3"><span class="rvts8">uniform int OrbitFunc; &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8">uniform bool UseEsmooth;</span></p>
+<p class="rvps3"><span class="rvts8">uniform float floatG; &nbsp; &nbsp;// our user input floating point value </span></p>
+<p class="rvps3"><span class="rvts8">uniform float fBailout; &nbsp; // the float of the compare value. Note: norm(ZZ) not ABS(ZZ) &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8">uniform vec2 viewPos;</span></p>
+<p class="rvps3"><span class="rvts8">uniform float viewZoom;</span></p>
+<p class="rvps3"><span class="rvts8">uniform float viewRatio;</span></p>
+<p class="rvps3"><span class="rvts8">uniform float anim;</span></p>
+<p class="rvps3"><span class="rvts8">uniform bool juliaMode;</span></p>
+<p class="rvps3"><span class="rvts8">uniform bool blinkMode;</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8">The actual code of the User Equation in the shader file :</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">//////////////////////////////////////////////////////////////////////////////////////////</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">//////////////////////////////////////////////////////////////////////////////////////////</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// &nbsp; &nbsp;USER ENTERED EQUATION HERE !!</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">//</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> </span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">case 3:</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// UseEsmooth &nbsp;floatG &nbsp;fBailout</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">i=0;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">while( i &lt; iters ) </span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">{</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">dNorm = norm(ZZ);</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">if( dNorm &gt;= _Type1_(fBailout) ) break;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">if( UseEsmooth ) fMU.x += Fast_eSmooth(dNorm);</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">i++ ;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">/////////////// DO NOT EDIT FOLLOWING &nbsp;//////////////////</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; // FGZ_USER_FUNCTION_INSERTION_POINT</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">//////////////// END /////////////////</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// ZZ = ADD( MUL(ZZ, ZZ), DIV( CC, ADD(_Type1_(1.0), MUL(floatG, ZZ) ))) ;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">// /////</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">}</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">if( !UseEsmooth ) {</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; fMU.x = ZZ.r ; </span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; fMU.y = ZZ.i ;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">}</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> </span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">break;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">//////////////////////////////////////////////////////////////////////////////////////////</span></p>
+<p class="rvps3"><span class="rvts8"></span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts8">//////////////////////////////////////////////////////////////////////////////////////////</span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps3"><span class="rvts8"><br></span></p>
+<p class="rvps2"><span class="rvts6">Created with the Personal Edition of HelpNDoc: </span><a class="rvts7" href="http://www.helpndoc.com">Full featured Documentation generator</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; July 2012 by &lt;Authors&gt;. All Rights Reserved. Covered under Creative Commons License.</div>
+		</div>
+	</body>
+	
+</html>
+

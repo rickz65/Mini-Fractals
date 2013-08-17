@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mini-Fractals_vs2012", "Mini-Fractals_vs2012.vcxproj", "{7212F0E1-E615-4A6C-9DDA-0C875686F686}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Mini-Fractals", "..\Mini-Fractals\Mini-Fractals.isproj", "{151387E5-F2E8-4C42-9261-617884E39529}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Win32 = CD_ROM|Win32
+		Debug|Win32 = Debug|Win32
+		DVD-5|Win32 = DVD-5|Win32
+		Release|Win32 = Release|Win32
+		SingleImage|Win32 = SingleImage|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.CD_ROM|Win32.ActiveCfg = Release|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.CD_ROM|Win32.Build.0 = Release|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.Debug|Win32.Build.0 = Debug|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.DVD-5|Win32.ActiveCfg = Debug|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.DVD-5|Win32.Build.0 = Debug|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.Release|Win32.ActiveCfg = Release|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.Release|Win32.Build.0 = Release|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.SingleImage|Win32.ActiveCfg = Release|Win32
+		{7212F0E1-E615-4A6C-9DDA-0C875686F686}.SingleImage|Win32.Build.0 = Release|Win32
+		{151387E5-F2E8-4C42-9261-617884E39529}.CD_ROM|Win32.ActiveCfg = CD_ROM
+		{151387E5-F2E8-4C42-9261-617884E39529}.CD_ROM|Win32.Build.0 = CD_ROM
+		{151387E5-F2E8-4C42-9261-617884E39529}.Debug|Win32.ActiveCfg = DVD-5
+		{151387E5-F2E8-4C42-9261-617884E39529}.Debug|Win32.Build.0 = DVD-5
+		{151387E5-F2E8-4C42-9261-617884E39529}.DVD-5|Win32.ActiveCfg = DVD-5
+		{151387E5-F2E8-4C42-9261-617884E39529}.DVD-5|Win32.Build.0 = DVD-5
+		{151387E5-F2E8-4C42-9261-617884E39529}.Release|Win32.ActiveCfg = SingleImage
+		{151387E5-F2E8-4C42-9261-617884E39529}.Release|Win32.Build.0 = SingleImage
+		{151387E5-F2E8-4C42-9261-617884E39529}.SingleImage|Win32.ActiveCfg = SingleImage
+		{151387E5-F2E8-4C42-9261-617884E39529}.SingleImage|Win32.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
