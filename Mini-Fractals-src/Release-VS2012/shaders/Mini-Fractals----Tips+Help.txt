@@ -1,0 +1,80 @@
+
+Mini-Fractals is an OpenGL/MFC Appplication, that produces Orbital type Fractals, like the Mandelbrot Set.
+It has two different Color Schemes, gradient color system and a e-Smoothing Coloring System.
+The Calculations to produce the Fractal are done by your computers GPU, or Graphical Processing Unit, 
+AKA a big Computer chip.
+
+The Application can compile the User Entered code into GLSL language, using a complex number functions,
+Such as ADD[x]  SUB[a,b] == a-b  ... ATANH[x] where x,a and b are complex numbers.
+
+
+
+Help :
+
+Getting The App to Up and Running Correctly with OpenGL :
+
+Although using Windows Update, or a 3rd party Driver-Booster 
+will have relatively new and functional drivers,
+I have found that by installing The Whole, Large ATI Catalyst CCC,
+About 70-120 MB in size, that Mini-Fractals will run (somewhat slow, about 10 FPS) on :
+ATI 4250 Mobile, with 40 shaders. 
+Before installing the whole CCC, the drivers where current to Nov. 2013, 
+Although the App failed completely.
+
+
+
+
+---
+
+On Using the 'User Entered Equations' :
+
+How to get the 'stupid' translator to properly digest more complicated algebraic statements ...
+
+Exactly like this :
+
+ZZ = sin[ZZ] / CC * floatG + ((pow[ZZ,(floatG+4)] + CC)*(1-floatG)) ;
+
+
+Note:
+pay carefule attention to the use of whitespace (space character) 
+and before and after +-*/  and before and after (,) 
+
+In some places use no spaces ...
+In others places pad with both spaces ...
+
+
+
+The Future OpenCL project:  Mini-Fractals-OpenCL 
+will (i think) be able to have operator overrides and (Template?) Classes defined, 
+which OpenGL can not.
+Hence the Global Scope Functions, and the Annoying Translator.
+
+I'll work on an improved translator, 
+or alternate solution for the v2.0 of OpenGL Mini-Fractals.
+
+---
+
+
+Fun and interesting Tip:
+
+ZZ = sin[ZZ] / CC * floatG + ((pow[ZZ,(floatG+4)] + CC)*(1-floatG)) ;
+
+Try the above example function in the 'User Entered Equation' text box, 
+make sure it's just a single line in the box.
+Set the 'floatG' value in it's text box to -1.0
+Set the 'Animate floatG from above to:' value to 1.0 
+and check the 'Animate' checkbox.
+Finally, click on 'Make Fractal' Button.
+Enjoy the Show.
+Un-check the 'Animate' Checkbox to STOP the action.
+
+---
+
+Note on Animate floatG values:
+There is a bug in the code such that the first (top) value must be LESS that the Animate to value.
+My appologies.
+
+
+
+
+
