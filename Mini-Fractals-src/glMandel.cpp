@@ -77,20 +77,9 @@ BOOL CBlackMandelApp::InitInstance()
 	// such as the name of your company or organization
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
-	
-	INT_PTR nResponse ;
-	try {
-
-		CBlackMandelDlg dlg;   // catch the constructor, too, if there is one.
-		m_pMainWnd = &dlg;
-
-		nResponse = dlg.DoModal();
-	 
-	}
-	catch(...) {
-		MessageBox(NULL, _T("\n\n  Mini-Fractals can't Use OpenGL correctly  \n\n  Try installing : \n      Video Card Software Package, \n      more than just the driver \n        (ATI SDK = 100MB file) \n\n"), _T("Mini-Fractals - Crash"), MB_OK)	;
-	}
-	 
+	CBlackMandelDlg dlg;
+	m_pMainWnd = &dlg;
+	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
 		// TODO: Place code here to handle when the dialog is

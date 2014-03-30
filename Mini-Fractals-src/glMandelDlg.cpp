@@ -879,87 +879,6 @@ HCURSOR CBlackMandelDlg::OnQueryDragIcon()
 }
 
 
-///////////////////////////////////////////////////////////////////
-/////  A far superior 'translator'
-///
-/////   Using Boost (1.55) 
-/////      xpressive -- Super Regex on Steroids.
-//
-
-#include <boost\xpressive\xpressive.hpp>
-#include <boost\xpressive\regex_actions.hpp> 
-
-using namespace boost;
-using namespace xpressive;
-using namespace regex_constants;
-
-
-void Duncil() 
-{
-
-sregex parentheses; 
-
-//sregex parentheses                          // A balanced set of parentheses ...
-//    = '('                            // is an opening parenthesis ...
-//        >>                           // followed by ...
-//         *(                          // zero or more ...
-//            keep( +~(set='(',')') )  // of a bunch of things that are not parentheses ...
-//          |                          // or ...
-//            by_ref(parentheses)      // a balanced set of parentheses
-//          )                          //   (ooh, recursion!) ...
-//        >>                           // followed by ...
-//      ')'                            // a closing parenthesis
-//    ;
-
-
-sregex expr;
-
-{
-     sregex_compiler compiler;
-     syntax_option_type x = ignore_white_space;
-
-            compiler.compile("(? $group  = ) \\( (? $expr ) \\) ", x);
-            compiler.compile("(? $factor = ) \\d+ | (? $group ) ", x);
-            compiler.compile("(? $term   = ) (? $factor )"
-                             " ( \\* (? $factor ) | / (? $factor ) )* ", x);
-     expr = compiler.compile("(? $expr   = ) (? $term )"
-                             "   ( \\+ (? $term ) | - (? $term )   )* ", x);
-}
-
-std::string str("foo 9*(10+3) bar");
-smatch what;
-
-if(regex_search(str, what, expr))
-{
-     // This prints "9*(10+3)":
-     std::cout << what[0] << std::endl;
-}
-
-
-// sregex parentheses;
-// parentheses = '(' >> *( keep( +~(set='(',')') ) | by_ref(parentheses) ) >> ')';
-
-smatch what;
-std::string str( "blah blah( a(b)c (c(e)f (g)h )i (j)6 )blah" );
-
-if( regex_search( str, what, parentheses ) )
-{
-    // display the whole match
-    std::cout << what[0] << '\n';
-
-    // display the nested results
-    std::for_each(
-        what.nested_results().begin(),
-        what.nested_results().end(),
-        output_nested_results() );
-}
-
-}  // end duncil
-
-// */
-
-
-
 /////////////////////////////////////////////////////
 /////    FGZ translator 
 /////
@@ -980,17 +899,15 @@ static const char* c_DefaultOprt[] =
 	  "*", "/", "+", "-", "<=", ">=", "!=", "==", "<", ">",    // translate operators, in order of precedence
 	  "(", ")", "=", ";",  " ",  0     // delimiting operators
 	};
-static int numOps = 14 ;   // total number (n-1) of operators in c_DefaultOprt[] to translate into function calls
-static int numTrans = 4 ;  // the first n char of c_DefaultOprt[]
-static int iFirstDelimitOp = 10 ;  // index of the first delimiting operator 
-
+static int numOps = 14 ;
+static int numTrans = 4 ;
 
 int CBlackMandelDlg::getNextOperatorPos(CString src, int start)  
 {
 	int posOp = src.GetLength() -1  ,   tmp ;
 	bool  bFound = false ;
 	 
-	for(int ii=0; ii < numOps; ii++) // this excludes the last operator in c_DefaultOprt[]
+	for(int ii=0; ii < numOps; ii++) 
 	{
 		tmp = src.Find( c_DefaultOprt[ii], start ) ;
 		if( tmp != -1 && ii == 14 ) {           // right now this isn't active, it may not be a good idea, either.
@@ -1032,7 +949,7 @@ int CBlackMandelDlg::getNextTokenPos(CString src, int start, bool bCheckBegining
 {
 	int tmp = start;
 	if( bCheckBegining ) tmp--;
-	while( src.GetAt(++tmp) == ' ' );  // is ++tmp wrong?  maybe: tmp++ ??
+	while( src.GetAt(++tmp) == ' ' );
 	if( tmp >= src.GetLength() ) tmp = src.GetLength() -1 ;
 	return tmp;
 }
@@ -1205,7 +1122,7 @@ CString CBlackMandelDlg::DigestParen(CString snipit, bool bCheckToken)
 					junk.Format("found open paren ! calling DP %d sending==%s", mycnt, snipit.Mid( iFirst , nCount ).GetString() );
 					cout << endl << junk.GetString() << endl ; 
 				}
-				chunk = DigestParen( snipit.Mid( iFirst , nCount +1 ), false ) ;  //FGZ-revived on 12/12/2013: (now, spaces don't matter, inside or out of parens)  +1  is to DROP OUT the leading paren (, nCount cuts out the trailing paren )
+				chunk = DigestParen( snipit.Mid( iFirst , nCount ), false ) ;  // +1  is to DROP OUT the leading paren (, nCount cuts out the trailing paren )
 				repeat = true ;
 			}
 			else
@@ -1213,7 +1130,6 @@ CString CBlackMandelDlg::DigestParen(CString snipit, bool bCheckToken)
 				nCount = tmp - (iFirst ) ;
 				int iiFirst = getNextTokenPos( snipit, iFirst, false );
 				tmp = getLastTokenPos( snipit, tmp, false );
-				// iiFirst++ ;   //   Go here ??? like in above if block ... iFirst-- ;  ??
 				
 				if( m_bTrace ) {
 					junk.Format("NO open paren: calling DP %d sending==%s", mycnt, snipit.Mid( iiFirst, tmp - iiFirst +1 ).GetString() );

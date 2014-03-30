@@ -81,7 +81,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Z:\boost_1_55_0;Z:\AMD APP\samples\opencl\SDKUtil\include;$(AMDAPPSDKROOT)include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Z:\AMD APP\samples\opencl\SDKUtil\include;$(AMDAPPSDKROOT)include</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -151,7 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="License-CPOL.txt" />
-    <Text Include="Mini-Fractals-User-Function_code-tips+help.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
